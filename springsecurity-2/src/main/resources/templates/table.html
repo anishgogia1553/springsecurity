@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>Schedular Details</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-0">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Logs</span>
+                        </a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+        <div class="col py-3">
+            <!--<nav class="navbar navbar-dark bg-primary">
+		 Navbar content 
+		<a class="navbar-brand" href="#">IVFRT</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</nav>-->
+	<table style="width: auto;" class="table table-striped-center">
+  <thead>
+    <tr>
+      <th scope="col">Schedular Id</th>
+      <th scope="col">Status</th>
+      <th scope="col">Status Date</th>
+      <th scope="col">Total Transaction</th>
+      <th scope="col">Success Count</th>
+      <th scope="col">failure Count</th>
+      <th scope="col">Execution Time</th>
+      <th scope="col">Log File</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="schedular : ${schedulars}"> 
+			<td th:text="${schedular.schedular_id}"></td>
+			<td th:text="${schedular.status}"></td>
+			<td th:text="${schedular.timestamp}"></td>
+			<td th:text="${schedular.total_transactions}"></td>
+			<td th:text="${schedular.success_count}"></td>
+			<td th:text="${schedular.failure_count}"></td>
+			<!--<td th:text="${schedular.log_file_path}"></td>-->	
+			<td th:text="${schedular.execution_time}"></td>
+			<td><a th:href="@{${schedular.log_file_path}}">view</a></td>
+		</tr>
+  </tbody>
+</table>
+        </div>
+    </div>
+</div>
+	
+	
+
+
+</body>
+
+</html>
