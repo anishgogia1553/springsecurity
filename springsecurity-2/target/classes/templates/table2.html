@@ -40,8 +40,23 @@
 				</div>
 			</div>
 			<div class="col py-3">
-
-				<table id = "table-body" style="width: auto;" class="table table-striped">
+				<select id="schedular_name" name="schedular_name">
+					<option value="0">select option</option>
+					<option th:each="main : ${mains}" th:value="${main.schedular_name}"
+						th:text="${main.schedular_name}"></option>
+				</select>
+				<select id="status" name="status">
+					<option value="0">select option</option>
+					<option value="1">Success</option>
+					<option value="0">Fail</option>
+				</select>
+				<select id="category" name="category">
+					<option value="0">select option</option>
+					<option th:each="category : ${categories}" th:value="${category.schedular_category}"
+						th:text="${category.schedular_category}"></option>
+				</select>
+				<input type="date" id="status_date" name="status_date">
+				<table style="width: auto;" class="table table-striped">
 					<thead>
 						<tr>
 							<th scope="col">Schedular Name</th>
@@ -67,20 +82,18 @@
 							<td th:text="${schedular.failure_count}"></td>
 							<td th:text="${schedular.execution_time}"></td>
 							<td th:text="${schedular.execution_schedule}"></td>
-							<!--<td> <a th:href="@{/get-logs/{path}(path = ${schedular.log_file_path})}"
-									th:target="_blank">Open</a></td>-->
-							<td><a th:href="@{/get-log(path=${schedular.log_file_path})}" th:target="_blank">Open</a></td>
-							<!--<td> <a th:href="@{/get-file/{path}(path = ${schedular.log_file_path})}"
-									th:target="_blank">Open</a></td>-->
-							<!--<td><a th:href="@{${schedular.log_file_path}}">view</a></td>-->
-	
+
+							<td><a th:href="@{/get-log(path=${schedular.log_file_path})}" th:target="_blank">Open</a>
+							</td>
+
+
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-
+	<script src="js/index.js"></script>
 </body>
 
 </html>

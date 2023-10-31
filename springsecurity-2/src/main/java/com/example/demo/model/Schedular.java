@@ -5,14 +5,37 @@ import java.util.Date;
 
 public class Schedular {
 	
+	private String schedular_name;
+	private String execution_schedule;
+	private String Schedular_category;
 	private int schedular_id;
 	private Date timestamp;
-	private int status;
+	private String status;
 	private int total_transactions;
 	private int success_count;
 	private int failure_count;
 	private String log_file_path;
 	private String execution_time;
+	
+	
+	public String getExecution_schedule() {
+		return execution_schedule;
+	}
+	public void setExecution_schedule(String execution_schedule) {
+		this.execution_schedule = execution_schedule;
+	}
+	public String getSchedular_name() {
+		return schedular_name;
+	}
+	public void setSchedular_name(String schedular_name) {
+		this.schedular_name = schedular_name;
+	}
+	public String getSchedular_category() {
+		return Schedular_category;
+	}
+	public void setSchedular_category(String schedular_category) {
+		Schedular_category = schedular_category;
+	}
 	public int getSchedular_id() {
 		return schedular_id;
 	}
@@ -24,14 +47,12 @@ public class Schedular {
 	}
 	public void setTimestamp(Date timestamp) {
 		
-		SimpleDateFormat mdyFormat = new SimpleDateFormat("dd-MM-yyyy");
-		mdyFormat.format(timestamp);
 		this.timestamp = timestamp;
 	}
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public int getTotal_transactions() {
@@ -66,10 +87,12 @@ public class Schedular {
 	}
 	@Override
 	public String toString() {
-		return "Schedular [schedular_id=" + schedular_id + ", timestamp=" + timestamp + ", status=" + status
+		return "Schedular [schedular_name=" + schedular_name + ", Schedular_category=" + Schedular_category
+				+ ", schedular_id=" + schedular_id + ", timestamp=" + timestamp + ", status=" + status
 				+ ", total_transactions=" + total_transactions + ", success_count=" + success_count + ", failure_count="
 				+ failure_count + ", log_file_path=" + log_file_path + ", execution_time=" + execution_time + "]";
 	}
+	
 	
 	
 	
